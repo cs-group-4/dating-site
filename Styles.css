@@ -1,0 +1,22 @@
+p {
+    font-size: large;
+    color: peachpuff;
+
+}
+h1 {
+    text-align: center;
+    text-decoration: dashed;
+    text-shadow: 5cm;
+    color: black;
+
+}
+h2 {
+    text-align: center;
+    font: bold;
+    color: black;
+
+}
+body {
+    text-align: center;
+
+}
