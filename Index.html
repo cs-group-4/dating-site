@@ -9,6 +9,33 @@
     <link rel="stylesheet" href="assets/css/Elegant-Registration-Form.css">
     <link rel="stylesheet" href="assets/css/Form-Select---Full-Date---Month-Day-Year.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(function() {
+            var currentPhase = 1;
+
+            $("#btn-next").click(function() {
+                if (currentPhase < 5) {
+                currentPhase++;
+                showPhase(currentPhase);
+                }
+            });
+
+            $("#btn-prev").click(function() {
+                if (currentPhase > 1) {
+                currentPhase--;
+                showPhase(currentPhase);
+                }
+            });
+
+            function showPhase(phaseNumber) {
+                $(".phase").each(function(){
+                    $(this).addClass("hidden");
+                });
+                $("#phase-" + phaseNumber).removeClass("hidden");
+             }
+        });
+    </script>
 </head>
 
 <body>
@@ -150,8 +177,10 @@
                                 </fieldset>
                             </div>
                         </div>
-                        <p class="p-button mt-2"><button class="btn btn-outline-secondary" type="button"
-                                style="background: #4d3423;">Previous</button><button class="btn" type="button"
+                        <p class="p-button mt-2">
+                            <button id="btn-prev" class="btn btn-outline-secondary" type="button"
+                                style="background: #4d3423;">Previous</button>
+                            <button id="btn-next" class="btn" type="button"
                                 style="--bs-primary: #772244;--bs-primary-rgb: 119,34,68;--bs-body-bg: #3c1d08;--bs-secondary: rgb(250,223,154);--bs-secondary-rgb: 250,223,154;background: #772244;">Next</button>
                         </p>
                     </form>
