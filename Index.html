@@ -10,46 +10,19 @@
     <link rel="stylesheet" href="assets/css/Form-Select---Full-Date---Month-Day-Year.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="jquery-3.6.4.js"></script>
-    <script>
-        $(document).ready(function() {
-            var currentPhase = 1;
-            var totalPhases = 5;
-
-            $("#btn-next").click(function() {
-                if (currentPhase < totalPhases) {
-                currentPhase++;
-                showPhase(currentPhase);
-                }
-                if(currentPhase === totalPhases){
-                    // Change the button text to "Submit"
-                    $(this).text("Submit");
-                }
-            });
-
-            $("#btn-prev").click(function() {
-                if (currentPhase > 1) {
-                currentPhase--;
-                showPhase(currentPhase);
-                }
-                if(currentPhase < totalPhases){
-                    // Change the button text back to "Next"
-                    $("#btn-next").text("Next");
-                }
-            });
-
-            function showPhase(phaseNumber) {
-                $(".phase").addClass("hidden");
-                $("#phase-" + phaseNumber).removeClass("hidden");
-
-                //Enable/disable the previous button based on the phase number
-                if(phaseNumber === 1){
-                    $("#btn-prev").prop("disabled", true);
-                } else {
-                    $("#btn-prev").prop("disabled", false);
-                }
-             }
-        });
-    </script>
+    <script src="script.js"></script>
+    <style>
+        .error-message {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-left: 25px;
+            margin-bottom: 60px;
+            color: red;
+            font-size: smaller;
+        }
+    </style>
 </head>
 
 <body>
@@ -189,6 +162,7 @@
                             </div>
                         </div>
                         <p class="p-button mt-2">
+                            <span id="error-message" class="error-message"></span>
                             <button id="btn-prev" class="btn btn-outline-secondary" type="button" disabled
                                 style="background: #4d3423;">Previous</button>
                             <button id="btn-next" class="btn" type="button"
